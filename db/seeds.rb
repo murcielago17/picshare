@@ -8,3 +8,6 @@
 
 Item.create({name: "Nikon D7000", description: "Camera"})
 Item.create({name: "Nikkor 35mm", description: "Nikon lens"})
+
+User.create({name: "Camera Joe"})
+User.create({name: "Lights Doe"})

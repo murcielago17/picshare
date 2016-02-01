@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  root "items#index"
-  resources :items, only: [:index, :new, :create, :show, :edit, :update]
+  get 'sessions/new'
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  root "items#index"
+  resources :items 
+                # , only: [:index, :new, :create, :show, :edit, :update, :destroy]
 end
 
 
