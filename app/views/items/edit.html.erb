@@ -1,0 +1,12 @@
+<%= form_for @item do |f|  %>
+
+	<%= f.text_field :name %>
+	<h1>name</h1>
+
+	<br><br>
+	<%= f.text_area :description %>
+	<h1>description</h1>
+	
+	<br><br>
+	<%= f.submit "Save Item" %>
+<% end %>
