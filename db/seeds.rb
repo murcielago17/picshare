@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Item.create({name: "Nikon D7000", description: "Camera"})
-Item.create({name: "Nikkor 35mm", description: "Nikon lens"})
+Item.create!({name: "Nikon D7000", description: "Camera"})
+Item.create!({name: "Nikkor 35mm", description: "Nikon lens"})
 
-User.create({name: "Camera Joe"})
-User.create({name: "Lights Doe"})
+User.create!({name: "Camera Joe", email:"Joe@email.com", password:"111111"})
+User.create!({name: "Lights Doe", email:"Doe@email.com", password:"111111"})

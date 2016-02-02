@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
+  
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   root "items#index"
   resources :items 
                 # , only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :users
+
 end
 
 

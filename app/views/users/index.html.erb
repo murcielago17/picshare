@@ -1,0 +1,15 @@
+<div class="container">
+	<div class="col-lg-12 text-center">
+
+<% @users.each do |user| %>
+ 	<div class="col-lg-4 well">
+ <p>
+	 <strong>Name:</strong> <%= link_to user.name, user %><br>
+	 
+ </p>
+		 </div>
+		<% end %>
+
+		<h1><%= link_to "View all items", '/items' %></h1>	
+	</div>
+</div>

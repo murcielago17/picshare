@@ -1,7 +1,14 @@
-<% @items.each do |item| %>
- <p>
-	 <strong>Name:</strong> <%= item.name %><br>
-	 <strong>Description:</strong><%= item.description %>
- </p>
-<% end %>
+<div class="container">
+	<div class="col-lg-12 text-center">
+		<% @items.each do |item| %>
+		 <div class="col-lg-4 well">
+		 <p>
+			 <strong>Name:</strong> <%= link_to item.name, item %><br>
+			 <strong>Description:</strong><%= item.description %>
+		 </p>
+		 </div>
+		<% end %>
 
+		<h1><%= link_to "View all users", '/users' %></h1>	
+	</div>
+</div>
