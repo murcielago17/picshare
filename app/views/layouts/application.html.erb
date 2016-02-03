@@ -12,11 +12,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+      
       <%= link_to "PicShare", root_path, class: "siteLogo siteLogoNav navbar-brand page-scroll a" %>
       <!-- <a class="navbar-brand" href="#">Picshare</a> -->
     </div>
@@ -27,23 +23,25 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+        <li><a href="#">Signed in as <%= current_user.name %> </a></li> <li><%= link_to "Logout", '/logout', class: "a"%></li>
       <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+        <li><%= link_to 'Login', '/login' %> </li> <li><%= link_to 'Signup', '/signup', class: "a" %></li>
       <% end %>
-        <li><a href="#">Username</a></li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
+<% if flash[:notice] %>
+  <div id="notice"> <%= flash[:notice]  %></div>
+<% end %>
 
 <div class="wide">
   	<div class="col-xs-5"><hr></div>
     <div class="col-xs-2 logo">PICSHARE</div>
     <div class="col-xs-5"><hr></div>
 </div>
-<br><br>
-
+<br>
 <!-- <div class="container">
   <div class="text-center">
     <h1>Content</h1>

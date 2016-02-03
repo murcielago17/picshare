@@ -1,7 +1,15 @@
 <div class="container">
 	<div class="col-lg-12 text-center well">
+
+		<%= image_tag @user.avatar.url(:medium) %>
+
 		<h3><%= @user.name %></h3>
-		<p><%=  @user.description %></p>
-	<%= button_to "Delete", @user, method: :delete, confirm: "Are you sure?" %>
+		<% @items.each do |item| %>
+			<%= link_to item.name, item, class:"btn btn-primary"%>
+		<% end %>
+
+		<%= button_to "Delete", @user, method: :delete %>
 	</div>
+	<%= link_to "Add new Item", new_item_path , class:"btn btn-primary" %>
+
 </div>
