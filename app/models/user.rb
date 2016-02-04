@@ -9,16 +9,17 @@ class User < ActiveRecord::Base
 										:styles => { :medium => "150x150>", :thumb => "44x44#" }, 
 										:storage => :s3,
 	                  :s3_credentials => Proc.new { |a| a.instance.s3_credentials },
+	                  :s3_host_name => 's3-us-west-1.amazonaws.com',
 	                  :path => "avatars/:id/:style/avatar.:extension",
-	                  :default_url => "https://s3.amazonaws.com/<<BUCKET>>/defaults/default_avatar.png"
-	                  # :default_url => "/images/:style/missing.png"
+	                  :default_url => "http://i.imgur.com/9nRLqn3.jpg"
+	                 
+								
+  validates_attachment :avatar, 
+  										 :content_type => {:content_type => ["image/jpg","image/jpeg","image/gif","image/png"]},
+  										 :size => { :in => 0..1000.kilobytes }
+	
+	def s3_credentials
+	  { :bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_ACCESS_KEY_ID'], :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'] }
+	end
 
-def s3_credentials
-  { :bucket => ENV['picshare-app'], :access_key_id => ENV['S3_PUBLIC_KEY'], :secret_access_key => ENV['S3_SECRET'] }
-end
-										
-
-  validates_attachment :avatar, :presence => true,
-  										 :content_type => {:content_type => ["image/jpg","image/gif","image/png"]},
-  										 :size => { :in => 0..10.kilobytes }
 end

@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(function() {
-  $('input').floatlabel({labelEndTop:0});
-});
+
+
+// $(function() {
+//   $('input').floatlabel({labelEndTop:0});
+// });
 

@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item_params = params.require(:item).permit(:name, :description)
+    item_params = params.require(:item).permit(:name, :description, :image_url)
     item = Item.new(item_params)
     if item.save
       redirect_to item_path(item)
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
   def update
   	item_id = params[:id]
   	@item = Item.find_by_id(item_id)
-  	@item_params = params.require(:item).permit(:name, :description)
+  	@item_params = params.require(:item).permit(:name, :description, :image_url)
   	@item.update_attributes(item_params)
   	redirect_to item_path(item)
   end
